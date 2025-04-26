@@ -3,10 +3,9 @@
   top: 90px; /* Below navbar (adjust if needed) */
   left: 50%;
   transform: translateX(-50%);
-  
-  width: 70vw;
+  width: 65vw;
   height: 85vh;
-  background-color: #f0f6ff;
+  background-color: #aac2e28b;
   border: 1px solid #d1e2ff;
   border-radius: 12px;
   display: flex;
@@ -17,8 +16,7 @@
 }
 
 .chat-header {
-  background-color: #3f7ccf;
-  color: white;
+  color: rgb(22, 69, 164);
   padding: 1.2rem;
   font-size: 1.4rem;
   font-weight: 600;
@@ -92,4 +90,77 @@
 
 .send-button:hover {
   background-color: #3465b2;
+}
+
+/* Smooth message animation */
+.chat-message {
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Disable send button style */
+.send-button:disabled {
+  background-color: #a6c0f4;
+  cursor: not-allowed;
+}
+
+
+/* Responsive tweak ONLY for mobile */
+@media (max-width: 768px) {
+  .chatbot-container {
+    width: 95%; /* Change width for small screens */
+    top: 80px;  /* Optional: lower top spacing */
+  }
+}
+
+/* Updated send button */
+.send-button {
+  background-color: #3f7ccf;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.8rem 1.8rem; /* Bigger tap area */
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.send-button:hover {
+  background-color: #3465b2;
+  transform: scale(1.05);
+}
+
+/* Disabled send button style */
+.send-button:disabled {
+  background-color: #a6c0f4;
+  cursor: not-allowed;
+}
+
+/* Optional: smoother message fade-in */
+.chat-message {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

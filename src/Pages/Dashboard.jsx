@@ -41,7 +41,7 @@ const Dashboard = () => {
         {activeTab === 'Chatbot' && (
           <div className="row">
             <Chatbot />
-            <div style={{ height: '100vh' }}></div>
+            
           </div>
         )}
 
@@ -68,7 +68,8 @@ const Dashboard = () => {
         )}
       </div>
 
-      <Footer />
+      {activeTab !== 'Chatbot' && <Footer />}
+
     </div>
   );
 };
