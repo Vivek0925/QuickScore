@@ -1,0 +1,184 @@
+.nav-wrapper {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  gap: 20px;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  max-width: 1200px;
+}
+
+/* Hamburger icon for mobile */
+.hamburger {
+  display: none;
+  background: #ffffff;
+  border: none;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  z-index: 1100;
+  position: relative;
+}
+
+/* Hamburger icon bars */
+.hamburger-icon {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 24px;
+  background: #334155;
+  border-radius: 3px;
+  opacity: 1;
+  left: 8px;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.hamburger-icon:nth-child(1) {
+  top: 12px;
+}
+
+.hamburger-icon:nth-child(2) {
+  top: 19px;
+}
+
+.hamburger-icon:nth-child(3) {
+  top: 26px;
+}
+
+/* Hamburger to X animation */
+.hamburger.open .hamburger-icon:nth-child(1) {
+  top: 19px;
+  transform: rotate(45deg);
+}
+
+.hamburger.open .hamburger-icon:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .hamburger-icon:nth-child(3) {
+  top: 19px;
+  transform: rotate(-45deg);
+}
+
+/* Tab container - desktop default */
+.Nav-Tab {
+  display: flex;
+  gap: 30px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-radius: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  max-width: 95vw;
+  position: relative;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar for WebKit */
+.Nav-Tab::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tab button styling */
+.tab {
+  flex: 0 0 auto;
+  background: transparent;
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  color: #334155;
+  border-radius: 25px;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+  transition: color 0.2s ease;
+}
+
+.tab:hover {
+  color: #1d4ed8;
+}
+
+.tab.active {
+  font-weight: 600;
+  color: #1d4ed8;
+}
+
+/* Highlight background under active tab */
+.tab-highlight {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  height: calc(100% - 16px);
+  background-color: #e0e7ff;
+  border-radius: 25px;
+  transition: transform 0.3s ease, width 0.3s ease;
+  z-index: 1;
+}
+
+/* ---------------------------- */
+/* Mobile: Hamburger Mode */
+/* ---------------------------- */
+@media (max-width: 768px) {
+  .nav-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .hamburger {
+    display: block;
+    align-self: flex-start;
+    position: relative;
+    z-index: 1200;
+  }
+  
+  /* Instagram-style mobile menu */
+  .Nav-Tab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 60px 20px 20px 20px; /* Add padding at top to make room for hamburger */
+    border-radius: 20px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all 0.35s ease;
+    pointer-events: none;
+    width: 60%;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    background-color: white;
+  }
+  
+  /* Show tab container with left-to-right animation */
+  .Nav-Tab.show-mobile {
+    max-height: 500px;
+    opacity: 1;
+    transform: scaleX(1);
+    pointer-events: auto;
+  }
+  
+  .tab {
+    padding: 12px 20px;
+    font-size: 16px;
+    width: 100%;
+    text-align: left;
+    transform: translateX(0);
+  }
+  
+  .tab-highlight {
+    display: none;
+  }
+}
