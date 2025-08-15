@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import '../css/Chatbot.css';
 
 const Chatbot = () => {
@@ -21,7 +23,9 @@ const Chatbot = () => {
         try {
             const response = await fetch('http://localhost:8000/api/v1/chat', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({ question: input })
             });
             const data = await response.json();
@@ -77,7 +81,7 @@ const Chatbot = () => {
                         className={`chat-message ${msg.sender}`}
                         role={msg.sender === 'bot' ? 'status' : 'user'}
                     >
-                        {msg.text}
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.text}</ReactMarkdown>
                     </div>
                 ))}
                 {isTyping && (
