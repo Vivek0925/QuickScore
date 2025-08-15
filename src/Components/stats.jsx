@@ -9,15 +9,22 @@ const Stats = () => {
         {/* Filters */}
         <div className="d-flex flex-column gap-2">
           <select className="form-select shadow-sm rounded-2 border-0 px-3 py-2" style={{ width: '170px', backgroundColor: 'white' }}>
-            <option>Select Semester</option>
-            <option>Sem 1</option>
-            <option>Sem 2</option>
+            <option>Select Batch</option>
+            <option>2021</option>
+            <option>2022</option>
+            <option>2023</option>
+            <option>2024</option>
           </select>
           <select className="form-select shadow-sm rounded-2 border-0 px-3 py-2" style={{ width: '170px', backgroundColor: 'white' }}>
-            <option>Select Grade</option>
-            <option>Grade 10</option>
-            <option>Grade 11</option>
-            <option>Grade 12</option>
+            <option>Select Semester</option>
+            <option>Semester 1</option>
+            <option>Semester 2</option>
+            <option>Semester 3</option>
+            <option>Semester 4</option>
+            <option>Semester 5</option>
+            <option>Semester 6</option>
+            <option>Semester 7</option>
+            <option>Semester 8</option>
           </select>
         </div>
 
